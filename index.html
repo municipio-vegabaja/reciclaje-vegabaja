@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclaje de Cartón - Vega Baja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            background: #facc15;
+            color: #166534;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 14px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .mascot-float {
+            animation: floating 3.5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header / Hero Section -->
+    <header class="hero-gradient text-white pb-16 pt-10 px-6 rounded-b-[3.5rem] shadow-xl relative overflow-hidden text-center">
+        <div class="max-w-md mx-auto relative z-10">
+            <div class="flex justify-center mb-6">
+                <div class="bg-white p-2 rounded-full shadow-lg">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Escudo_de_Vega_Baja.svg/1200px-Escudo_de_Vega_Baja.svg.png" alt="Escudo Vega Baja" class="h-20 w-auto">
+                </div>
+            </div>
+            <h1 class="text-3xl font-extrabold mb-2 tracking-tight uppercase">Comerciante Vegabajeño</h1>
+            <p class="text-green-100 text-lg opacity-90 mb-4">Programa Municipal de Reciclaje</p>
+            <div class="inline-block bg-yellow-400 text-green-900 font-black px-6 py-2 rounded-full text-sm uppercase tracking-widest shadow-md">
+                ¡Servicio 100% Gratuito!
+            </div>
+        </div>
+        <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full"></div>
+        <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-black/5 rounded-full"></div>
+    </header>
+
+    <main class="max-w-md mx-auto px-6 -mt-10 pb-40">
+        
+        <!-- Impact Calculator -->
+        <section class="bg-white rounded-[2.5rem] card-shadow p-8 mb-8 border border-slate-100">
+            <h2 class="text-xl font-bold text-green-800 mb-6 flex items-center justify-center text-center">
+                <i data-lucide="leaf" class="mr-2 text-green-500"></i> Tu impacto al reciclar
+            </h2>
+            
+            <div class="mb-10">
+                <label class="block text-center text-sm font-semibold text-slate-500 mb-4 uppercase tracking-wider">Cajas generadas semanalmente</label>
+                <input type="range" id="boxRange" min="5" max="250" value="30" 
+                    class="w-full h-2.5 bg-green-100 rounded-lg appearance-none cursor-pointer accent-green-600">
+                <div class="text-center mt-4 font-black text-3xl text-green-700" id="boxValue">30 cajas</div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-emerald-50/50 p-5 rounded-3xl text-center border border-emerald-100">
+                    <div class="bg-emerald-100 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-emerald-600">
+                        <i data-lucide="tree-pine" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-2xl font-black text-emerald-800" id="treeResult">1.5</div>
+                    <div class="text-[10px] uppercase text-emerald-600 font-bold leading-tight">Árboles salvados<br>al año</div>
+                </div>
+                <div class="bg-sky-50/50 p-5 rounded-3xl text-center border border-sky-100">
+                    <div class="bg-sky-100 w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 text-sky-600">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-2xl font-black text-sky-800" id="spaceResult">1.8</div>
+                    <div class="text-[10px] uppercase text-sky-600 font-bold leading-tight">M³ de vertedero<br>evitados al mes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasos para Unirse (NUEVA SECCIÓN) -->
+        <section class="mb-8">
+            <h2 class="text-center text-xl font-bold text-slate-700 mb-6">¿Cómo acogerse al programa?</h2>
+            <div class="space-y-6">
+                <!-- Paso 1 -->
+                <div class="bg-white p-5 rounded-3xl card-shadow border border-slate-100 relative">
+                    <div class="step-number">1</div>
+                    <div class="flex items-center">
+                        <div class="bg-blue-100 p-3 rounded-2xl mr-4 text-blue-600">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Coordina tu registro</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Llama al 787-855-2500 ext. 3302 para registrar tu negocio.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Paso 2 -->
+                <div class="bg-white p-5 rounded-3xl card-shadow border border-slate-100 relative">
+                    <div class="step-number">2</div>
+                    <div class="flex items-center">
+                        <div class="bg-yellow-100 p-3 rounded-2xl mr-4 text-yellow-700">
+                            <i data-lucide="box"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Prepara el material</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Ubica un área accesible y separa el cartón limpio de otros desechos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-white p-5 rounded-3xl card-shadow border border-slate-100 relative">
+                    <div class="step-number">3</div>
+                    <div class="flex items-center">
+                        <div class="bg-green-100 p-3 rounded-2xl mr-4 text-green-700">
+                            <i data-lucide="truck"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-sm">Recogido semanal</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">¡Listo! Nosotros pasamos semanalmente por tu establecimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules -->
+        <section class="bg-red-50 p-6 rounded-[2.5rem] border border-red-100 mb-10">
+            <h3 class="text-red-700 font-bold text-sm mb-4 flex items-center justify-center">
+                <i data-lucide="alert-circle" class="mr-2 w-4 h-4"></i> Requisitos del material:
+            </h3>
+            <div class="grid grid-cols-2 gap-3 text-[10px] text-red-600/80 font-bold uppercase">
+                <div class="bg-white/50 p-2 rounded-xl border border-red-50 flex items-center">
+                    <i data-lucide="x" class="w-3 h-3 mr-2 text-red-500"></i> No encerado
+                </div>
+                <div class="bg-white/50 p-2 rounded-xl border border-red-50 flex items-center">
+                    <i data-lucide="x" class="w-3 h-3 mr-2 text-red-500"></i> Sin comida/grasa
+                </div>
+                <div class="bg-white/50 p-2 rounded-xl border border-red-50 flex items-center">
+                    <i data-lucide="x" class="w-3 h-3 mr-2 text-red-500"></i> Sin plásticos
+                </div>
+                <div class="bg-white/50 p-2 rounded-xl border border-red-50 flex items-center">
+                    <i data-lucide="x" class="w-3 h-3 mr-2 text-red-500"></i> Sin foam
+                </div>
+            </div>
+        </section>
+
+        <!-- Official Logos Section -->
+        <footer class="text-center py-6 border-t border-slate-200">
+            <div class="flex justify-center items-center gap-6 mb-6 opacity-80">
+                <!-- Representación del Logo de la Secretaría -->
+                <div class="flex flex-col items-center max-w-[100px]">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-1">
+                         <i data-lucide="shield-check" class="text-green-700 w-6 h-6"></i>
+                    </div>
+                    <p class="text-[7px] leading-tight font-bold text-slate-600 uppercase">Secretaría de Salud Ambiental</p>
+                </div>
+                <!-- Mascot -->
+                <div class="mascot-float">
+                    <div class="bg-green-100 w-16 h-16 rounded-full border-2 border-white shadow-md flex items-center justify-center overflow-hidden">
+                        <img src="https://img.icons8.com/color/96/crocodile.png" alt="Caimito" class="w-10 h-10">
+                    </div>
+                </div>
+                <!-- Logo Salud Ambiental -->
+                <div class="flex flex-col items-center max-w-[100px]">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-1">
+                         <i data-lucide="recycle" class="text-blue-600 w-6 h-6"></i>
+                    </div>
+                    <p class="text-[7px] leading-tight font-bold text-slate-600 uppercase">Salud Ambiental Vega Baja</p>
+                </div>
+            </div>
+            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">Municipio Autónomo de Vega Baja</p>
+        </footer>
+    </main>
+
+    <!-- Fixed Action Button -->
+    <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-white via-white/95 to-transparent">
+        <div class="max-w-md mx-auto">
+            <p class="text-center text-[10px] text-slate-400 mb-2 font-bold uppercase italic">Haz clic para llamar y unirte hoy:</p>
+            <a href="tel:7878552500,3302" class="block w-full bg-green-700 hover:bg-green-800 text-white text-center py-4 rounded-2xl shadow-2xl font-bold text-lg flex items-center justify-center transition-all active:scale-95 animate-bounce-short">
+                <i data-lucide="phone-call" class="mr-3"></i> 787-855-2500 Ext. 3302
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const boxRange = document.getElementById('boxRange');
+        const boxValue = document.getElementById('boxValue');
+        const treeResult = document.getElementById('treeResult');
+        const spaceResult = document.getElementById('spaceResult');
+
+        function updateResults() {
+            const boxes = parseInt(boxRange.value);
+            boxValue.innerText = `${boxes} cajas`;
+            const trees = (boxes * 52 / 850).toFixed(1);
+            const space = (boxes * 0.04 * 4).toFixed(1);
+
+            treeResult.innerText = trees;
+            spaceResult.innerText = space;
+        }
+
+        boxRange.addEventListener('input', updateResults);
+        updateResults();
+    </script>
+</body>
+</html>
